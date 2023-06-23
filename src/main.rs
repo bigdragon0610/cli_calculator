@@ -49,13 +49,13 @@ fn parse_formula(formula: &str) -> Option<isize> {
         } else if operators.contains(&c) {
             if let Some(next_c) = formula.peek() {
                 if operators.contains(next_c) {
-                    println!("Syntax Error: Can't put '{}' after '{}'", next_c, c);
+                    println!("Error: Unexpected operator '{}' following '{}'", next_c, c);
                     return None;
                 }
             }
             operator = c;
         } else {
-            println!("Unknown Character: {}", c);
+            println!("Error: Unexpected character '{}'", c);
             return None;
         }
     }
